@@ -1,7 +1,9 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition;
 
 import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 import java.math.BigDecimal;
@@ -33,8 +35,18 @@ public interface ILessThanCondition<T> extends ISingleCondition {
         String lessThanFieldName = getLessThanFieldName();
         Object lessThanTargetValue = getLessThanTargetValue();
         Object currentValue = facts.get(lessThanFieldName);
+        if (ObjectUtil.isEmpty(currentValue)) {
+
+            return Boolean.FALSE;
+        }
 
         return NumberUtil.isLess(new BigDecimal(StrUtil.toString(currentValue)), new BigDecimal(StrUtil.toString(lessThanTargetValue)));
+    }
+
+    @Override
+    default String getConditionTypeCode() {
+
+        return ConditionTypeEnum.LESS_THAN.getCode();
     }
 
 }

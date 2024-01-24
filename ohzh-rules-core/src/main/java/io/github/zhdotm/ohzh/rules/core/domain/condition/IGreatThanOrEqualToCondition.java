@@ -1,7 +1,9 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition;
 
 import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 import java.math.BigDecimal;
@@ -33,8 +35,17 @@ public interface IGreatThanOrEqualToCondition<T> extends ISingleCondition {
         String greatThanOrEqualToFieldName = getGreatThanOrEqualToFieldName();
         Object greatThanOrEqualToTargetValue = getGreatThanOrEqualToTargetValue();
         Object currentValue = facts.get(greatThanOrEqualToFieldName);
+        if (ObjectUtil.isEmpty(currentValue)) {
+
+            return Boolean.FALSE;
+        }
 
         return NumberUtil.isGreaterOrEqual(new BigDecimal(StrUtil.toString(currentValue)), new BigDecimal(StrUtil.toString(greatThanOrEqualToTargetValue)));
     }
 
+    @Override
+    default String getConditionTypeCode() {
+
+        return ConditionTypeEnum.GREAT_THAN_OR_EQUAL_TO.getCode();
+    }
 }

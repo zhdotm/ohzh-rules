@@ -1,7 +1,6 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.IRangeCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -23,9 +22,4 @@ public class RangeCondition<T> extends AbstractSingleCondition implements IRange
     @Getter
     private final T rightBoundaryTargetValue;
 
-    @Override
-    public String getConditionTypeCode() {
-
-        return ConditionTypeEnum.RANGE.getCode();
-    }
 }

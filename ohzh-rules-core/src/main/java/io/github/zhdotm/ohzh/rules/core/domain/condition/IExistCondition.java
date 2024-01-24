@@ -2,6 +2,7 @@ package io.github.zhdotm.ohzh.rules.core.domain.condition;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 import java.util.List;
@@ -37,4 +38,9 @@ public interface IExistCondition extends ISingleCondition {
         return CollectionUtil.contains(existTargetValues, currentValue);
     }
 
+    @Override
+    default String getConditionTypeCode() {
+
+        return ConditionTypeEnum.EXIST.getCode();
+    }
 }

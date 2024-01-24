@@ -1,6 +1,7 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition;
 
 import cn.hutool.core.util.ObjectUtil;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 /**
@@ -34,4 +35,9 @@ public interface INotEqualToCondition<T> extends ISingleCondition {
         return !ObjectUtil.equal(currentValue, notEqualToTargetValue);
     }
 
+    @Override
+    default String getConditionTypeCode() {
+
+        return ConditionTypeEnum.NOT_EQUAL_TO.getCode();
+    }
 }

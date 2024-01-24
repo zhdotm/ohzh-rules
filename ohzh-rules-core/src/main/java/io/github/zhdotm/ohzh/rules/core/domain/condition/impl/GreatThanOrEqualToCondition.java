@@ -1,7 +1,6 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.IGreatThanOrEqualToCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -19,11 +18,5 @@ public class GreatThanOrEqualToCondition<T> extends AbstractSingleCondition impl
 
     @Getter
     private final T greatThanOrEqualToTargetValue;
-
-    @Override
-    public String getConditionTypeCode() {
-
-        return ConditionTypeEnum.GREAT_THAN_OR_EQUAL_TO.getCode();
-    }
 
 }

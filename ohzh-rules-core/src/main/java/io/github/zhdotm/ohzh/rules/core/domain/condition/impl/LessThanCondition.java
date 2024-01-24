@@ -1,7 +1,6 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.ILessThanCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -19,10 +18,4 @@ public class LessThanCondition<T> extends AbstractSingleCondition implements ILe
 
     @Getter
     private final T lessThanTargetValue;
-
-    @Override
-    public String getConditionTypeCode() {
-
-        return ConditionTypeEnum.LESS_THAN.getCode();
-    }
 }

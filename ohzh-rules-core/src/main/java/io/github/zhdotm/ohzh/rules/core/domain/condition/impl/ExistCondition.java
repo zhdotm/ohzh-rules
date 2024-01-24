@@ -1,7 +1,6 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.IExistCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -22,9 +21,4 @@ public class ExistCondition extends AbstractSingleCondition implements IExistCon
     @Getter
     private final List<String> existTargetValues;
 
-    @Override
-    public String getConditionTypeCode() {
-
-        return ConditionTypeEnum.EXIST.getCode();
-    }
 }
