@@ -17,9 +17,9 @@ import java.util.function.Function;
 public class SingleAction<T> implements ISingleAction {
 
     @Getter
-    private final String returnFieldName;
-    @Getter
     private final String actionTypeCode;
+    @Getter
+    private final String returnFieldName;
     @Getter
     private final Function<Facts, T> doExecuteFunction;
     @Getter
@@ -28,9 +28,9 @@ public class SingleAction<T> implements ISingleAction {
     @Getter
     private T executeReturn;
 
-    public SingleAction(String returnFieldName, String actionTypeCode, Function<Facts, T> doExecuteFunction) {
-        this.returnFieldName = returnFieldName;
+    public SingleAction(String actionTypeCode, String returnFieldName, Function<Facts, T> doExecuteFunction) {
         this.actionTypeCode = actionTypeCode;
+        this.returnFieldName = returnFieldName;
         this.doExecuteFunction = doExecuteFunction;
     }
 
