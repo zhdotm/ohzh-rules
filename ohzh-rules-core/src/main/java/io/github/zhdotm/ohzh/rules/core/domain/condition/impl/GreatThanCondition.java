@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 大于等于条件
+ * 大于条件
  *
  * @author zhihao.mao
  */
