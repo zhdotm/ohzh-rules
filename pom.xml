@@ -7,6 +7,9 @@
     <groupId>io.github.zhdotm</groupId>
     <artifactId>ohzh-rules</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>ohzh-rules-core</module>
+    </modules>
     <packaging>pom</packaging>
 
     <properties>
@@ -14,6 +17,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
         <hutool.version>5.8.15</hutool.version>
+        <easy-rules.version>4.1.0</easy-rules.version>
     </properties>
 
     <dependencyManagement>
@@ -39,6 +43,16 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-json</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jeasy</groupId>
+                <artifactId>easy-rules-core</artifactId>
+                <version>${easy-rules.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jeasy</groupId>
+                <artifactId>easy-rules-support</artifactId>
+                <version>${easy-rules.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
