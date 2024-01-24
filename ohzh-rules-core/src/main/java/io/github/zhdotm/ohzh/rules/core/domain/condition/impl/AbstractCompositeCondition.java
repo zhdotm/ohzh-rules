@@ -30,7 +30,7 @@ public abstract class AbstractCompositeCondition implements ICompositeCondition 
 
     public AbstractCompositeCondition(ICondition... conditions) {
         this.conditions = new TreeSet<>();
-        ;
+
         if (ArrayUtil.isNotEmpty(conditions)) {
             this.conditions.addAll(Arrays.asList(conditions));
         }
