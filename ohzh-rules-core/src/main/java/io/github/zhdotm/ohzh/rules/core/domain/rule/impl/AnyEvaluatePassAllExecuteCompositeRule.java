@@ -22,7 +22,7 @@ public class AnyEvaluatePassAllExecuteCompositeRule extends AbstractCompositeRul
 
     @Override
     public String getRuleTypeCode() {
-        
+
         return RuleTypeEnum.ANY_EVALUATE_PASS_ALL_EXECUTE.getCode();
     }
 

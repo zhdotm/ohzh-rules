@@ -28,7 +28,7 @@ public class FirstEvaluatePassFirstExecuteCompositeRule extends AbstractComposit
 
     @Override
     public String getRuleTypeCode() {
-        
+
         return RuleTypeEnum.FIRST_EVALUATE_PASS_FIRST_EXECUTE.getCode();
     }
 

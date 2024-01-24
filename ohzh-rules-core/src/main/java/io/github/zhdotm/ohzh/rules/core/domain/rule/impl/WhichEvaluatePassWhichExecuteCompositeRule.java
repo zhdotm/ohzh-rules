@@ -27,7 +27,7 @@ public class WhichEvaluatePassWhichExecuteCompositeRule extends AbstractComposit
 
     @Override
     public String getRuleTypeCode() {
-        
+
         return RuleTypeEnum.WHICH_EVALUATE_PASS_WHICH_EXECUTE.getCode();
     }
 
