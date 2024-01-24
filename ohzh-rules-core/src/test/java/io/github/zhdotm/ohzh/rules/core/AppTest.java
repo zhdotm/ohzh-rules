@@ -59,7 +59,7 @@ public class AppTest {
     }
 
     public static void main(String[] args) {
-        IRule rule1 = new SingleRule("rule1", "规则1", new GreatThanCondition<>("fieldName001", 100), new SingleAction<Integer>("doNothingFieldName001", "doNothing", facts -> facts.get("fieldName001")));
+        IRule rule1 = new SingleRule("rule1", "规则1", new GreatThanCondition<>("fieldName001", 100), new SingleAction<>("doNothingFieldName001", "doNothing", facts -> (Integer) facts.get("fieldName001")));
         rule1.setPriority(1);
         IRule rule2 = new SingleRule("rule2", "规则2", new GreatThanCondition<>("fieldName001", 200), new SingleAction<>("doubleFieldName001", "doubleAction", facts -> ((Integer) facts.get("fieldName001")) * 2));
         rule2.setPriority(2);
