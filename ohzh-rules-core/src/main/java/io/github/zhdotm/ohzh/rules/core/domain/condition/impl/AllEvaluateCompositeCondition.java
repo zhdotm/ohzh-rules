@@ -8,14 +8,15 @@ import org.jeasy.rules.api.Facts;
 import java.util.Collection;
 
 /**
- * 任意条件匹配
+ * 所有条件都评估
  *
  * @author zhihao.mao
  */
 
-public class AnyMatchCompositeCondition extends AbstractCompositeCondition {
 
-    public AnyMatchCompositeCondition(ICondition... conditions) {
+public class AllEvaluateCompositeCondition extends AbstractCompositeCondition {
+
+    public AllEvaluateCompositeCondition(ICondition... conditions) {
         super(conditions);
     }
 
@@ -29,13 +30,13 @@ public class AnyMatchCompositeCondition extends AbstractCompositeCondition {
         }
 
         return conditions.stream()
-                .anyMatch(condition -> condition.evaluate(facts));
+                .allMatch(condition -> condition.evaluate(facts));
     }
 
     @Override
     public String getConditionCode() {
 
-        return ConditionEnum.ANY_MATCH.getCode();
+        return ConditionEnum.ALL_EVALUATE.getCode();
     }
 
 }

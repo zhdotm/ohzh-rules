@@ -21,9 +21,9 @@ public class AppTest {
         //条件 (inventoryQuantity > 100 && inventoryQuantity < 500) || (companyType == travelCompany)
         LessThanCondition<Integer> inventoryQuantityLessThanCondition = new LessThanCondition<>("inventoryQuantity", 500);
         GreatThanCondition<Integer> inventoryQuantityGreatThanCondition = new GreatThanCondition<>("inventoryQuantity", 100);
-        AllMatchCompositeCondition leftAllMatchCompositeCondition = new AllMatchCompositeCondition(inventoryQuantityLessThanCondition, inventoryQuantityGreatThanCondition);
+        AllEvaluateCompositeCondition leftAllMatchCompositeCondition = new AllEvaluateCompositeCondition(inventoryQuantityLessThanCondition, inventoryQuantityGreatThanCondition);
         EqualToCondition<String> travelCompanyEqualToCondition = new EqualToCondition<>("companyType", "travelCompany");
-        AnyMatchCompositeCondition compositeCondition = new AnyMatchCompositeCondition(leftAllMatchCompositeCondition, travelCompanyEqualToCondition);
+        AnyEvaluateCompositeCondition compositeCondition = new AnyEvaluateCompositeCondition(leftAllMatchCompositeCondition, travelCompanyEqualToCondition);
 
         //动作 计算出 下个季度库存: nextSeasonInventoryQuantity
         IAction nextSeasonInventoryQuantityAction = new SingleAction<>("nextSeasonInventoryQuantity", "calculateNextSeasonInventoryQuantity", facts -> ((Long) facts.get("inventoryQuantity")) * 2);

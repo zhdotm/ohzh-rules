@@ -15,8 +15,8 @@ public enum ConditionEnum {
     /**
      * 条件枚举
      */
-    ALL_MATCH("all_match_condition", "全匹配"),
-    ANY_MATCH("any_match_condition", "任意匹配"),
+    ALL_EVALUATE("ALL_EVALUATE_CONDITION", "全匹配"),
+    ANY_EVALUATE("ANY_EVALUATE_CONDITION", "任意匹配"),
     EQUAL_TO("equal_to_condition", "等于"),
     NOT_EQUAL_TO("not_equal_to_condition", "不等于"),
     EXIST("exist_condition", "存在"),
