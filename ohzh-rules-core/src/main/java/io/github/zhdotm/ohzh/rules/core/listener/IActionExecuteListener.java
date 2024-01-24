@@ -1,6 +1,6 @@
 package io.github.zhdotm.ohzh.rules.core.listener;
 
-import io.github.zhdotm.ohzh.rules.core.domain.rule.IRule;
+import io.github.zhdotm.ohzh.rules.core.domain.rule.ISingleRule;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.api.Rule;
 import org.jeasy.rules.api.RuleListener;
@@ -13,7 +13,7 @@ import org.jeasy.rules.api.RuleListener;
 
 public interface IActionExecuteListener extends RuleListener {
 
-    void doBeforeExecute(IRule rule, Facts facts);
+    void doBeforeExecute(ISingleRule rule, Facts facts);
 
     /**
      * 执行之前
@@ -23,13 +23,13 @@ public interface IActionExecuteListener extends RuleListener {
      */
     @Override
     default void beforeExecute(Rule rule, Facts facts) {
-        if (rule instanceof IRule) {
+        if (rule instanceof ISingleRule) {
 
-            doBeforeExecute((IRule) rule, facts);
+            doBeforeExecute((ISingleRule) rule, facts);
         }
     }
 
-    void doOnSuccess(IRule rule, Facts facts);
+    void doOnSuccess(ISingleRule rule, Facts facts);
 
     /**
      * 执行成功
@@ -39,13 +39,13 @@ public interface IActionExecuteListener extends RuleListener {
      */
     @Override
     default void onSuccess(Rule rule, Facts facts) {
-        if (rule instanceof IRule) {
+        if (rule instanceof ISingleRule) {
 
-            doOnSuccess((IRule) rule, facts);
+            doOnSuccess((ISingleRule) rule, facts);
         }
     }
 
-    void doOnFailure(IRule rule, Facts facts, Exception exception);
+    void doOnFailure(ISingleRule rule, Facts facts, Exception exception);
 
     /**
      * 执行失败
@@ -56,10 +56,10 @@ public interface IActionExecuteListener extends RuleListener {
      */
     @Override
     default void onFailure(Rule rule, Facts facts, Exception exception) {
-        if (rule instanceof IRule) {
+        if (rule instanceof ISingleRule) {
 
-            doOnFailure((IRule) rule, facts, exception);
+            doOnFailure((ISingleRule) rule, facts, exception);
         }
     }
-    
+
 }

@@ -6,7 +6,7 @@ import io.github.zhdotm.ohzh.rules.core.domain.action.IAction;
 import io.github.zhdotm.ohzh.rules.core.domain.action.impl.AllExecuteCompositeAction;
 import io.github.zhdotm.ohzh.rules.core.domain.action.impl.SingleAction;
 import io.github.zhdotm.ohzh.rules.core.domain.condition.impl.*;
-import io.github.zhdotm.ohzh.rules.core.domain.rule.impl.RulePlus;
+import io.github.zhdotm.ohzh.rules.core.domain.rule.impl.SingleRule;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.core.DefaultRulesEngine;
@@ -33,7 +33,7 @@ public class AppTest {
         AllExecuteCompositeAction compositeAction = new AllExecuteCompositeAction(nextSeasonInventoryQuantityAction, needScaleUpAction);
 
         //规则
-        RulePlus rule1 = new RulePlus("rule1", "规则1", 1, compositeCondition, compositeAction);
+        SingleRule rule1 = new SingleRule("rule1", "规则1", 1, compositeCondition, compositeAction);
         rules.register(rule1);
 
         //执行

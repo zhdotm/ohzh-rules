@@ -1,6 +1,6 @@
 package io.github.zhdotm.ohzh.rules.core.listener;
 
-import io.github.zhdotm.ohzh.rules.core.domain.rule.IRule;
+import io.github.zhdotm.ohzh.rules.core.domain.rule.ISingleRule;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.api.Rule;
 import org.jeasy.rules.api.RuleListener;
@@ -13,7 +13,7 @@ import org.jeasy.rules.api.RuleListener;
 
 public interface IConditionEvaluateListener extends RuleListener {
 
-    boolean doBeforeEvaluate(IRule rule, Facts facts);
+    boolean doBeforeEvaluate(ISingleRule rule, Facts facts);
 
     /**
      * 该方法在执行Condition判断之前执行。
@@ -25,15 +25,15 @@ public interface IConditionEvaluateListener extends RuleListener {
      */
     @Override
     default boolean beforeEvaluate(Rule rule, Facts facts) {
-        if (rule instanceof IRule) {
+        if (rule instanceof ISingleRule) {
 
-            return doBeforeEvaluate((IRule) rule, facts);
+            return doBeforeEvaluate((ISingleRule) rule, facts);
         }
 
         return Boolean.TRUE;
     }
 
-    void doAfterEvaluate(IRule rule, Facts facts, boolean evaluationResult);
+    void doAfterEvaluate(ISingleRule rule, Facts facts, boolean evaluationResult);
 
     /**
      * 该方法在执行Condition判断方法之后执行。
@@ -44,13 +44,13 @@ public interface IConditionEvaluateListener extends RuleListener {
      */
     @Override
     default void afterEvaluate(Rule rule, Facts facts, boolean evaluationResult) {
-        if (rule instanceof IRule) {
+        if (rule instanceof ISingleRule) {
 
-            doAfterEvaluate((IRule) rule, facts, evaluationResult);
+            doAfterEvaluate((ISingleRule) rule, facts, evaluationResult);
         }
     }
 
-    void doOnEvaluationError(IRule rule, Facts facts, Exception exception);
+    void doOnEvaluationError(ISingleRule rule, Facts facts, Exception exception);
 
     /**
      * 该方法在执行Condition判断方法发生异常之后执行
@@ -61,9 +61,9 @@ public interface IConditionEvaluateListener extends RuleListener {
      */
     @Override
     default void onEvaluationError(Rule rule, Facts facts, Exception exception) {
-        if (rule instanceof IRule) {
+        if (rule instanceof ISingleRule) {
 
-            doOnEvaluationError((IRule) rule, facts, exception);
+            doOnEvaluationError((ISingleRule) rule, facts, exception);
         }
     }
 

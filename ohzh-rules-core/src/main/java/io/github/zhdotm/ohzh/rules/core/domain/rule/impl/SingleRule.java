@@ -2,7 +2,7 @@ package io.github.zhdotm.ohzh.rules.core.domain.rule.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.action.ICompositeAction;
 import io.github.zhdotm.ohzh.rules.core.domain.condition.ICompositeCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.rule.IRule;
+import io.github.zhdotm.ohzh.rules.core.domain.rule.ISingleRule;
 import lombok.Getter;
 import org.jeasy.rules.api.Rule;
 
@@ -14,7 +14,7 @@ import java.util.Optional;
  * @author zhihao.mao
  */
 
-public class RulePlus implements IRule {
+public class SingleRule implements ISingleRule {
 
     @Getter
     private final String ruleCode;
@@ -31,11 +31,11 @@ public class RulePlus implements IRule {
     @Getter
     private final String description;
 
-    public RulePlus(String ruleCode,
-                    String description,
-                    Integer priority,
-                    ICompositeCondition compositeCondition,
-                    ICompositeAction compositeAction) {
+    public SingleRule(String ruleCode,
+                      String description,
+                      Integer priority,
+                      ICompositeCondition compositeCondition,
+                      ICompositeAction compositeAction) {
         this.ruleCode = ruleCode;
         this.description = Optional.ofNullable(description).orElse(Rule.DEFAULT_DESCRIPTION);
         this.priority = Optional.ofNullable(priority).orElse(Rule.DEFAULT_PRIORITY);
