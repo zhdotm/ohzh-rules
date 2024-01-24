@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @author zhihao.mao
  */
 
-public interface IRangeCondition<T> extends ICondition {
+public interface IRangeCondition<T> extends ISingleCondition {
 
     /**
      * 获取范围条件字段名称

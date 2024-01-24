@@ -8,14 +8,16 @@ import org.jeasy.rules.api.Action;
  * @author zhihao.mao
  */
 
-public interface IAction extends Action {
+public interface IAction extends Action, Comparable<IAction> {
+
+    int DEFAULT_PRIORITY = Integer.MAX_VALUE - 1;
 
     /**
      * 获取动作条件
      *
      * @return 动作条件
      */
-    String getActionCode();
+    String getActionTypeCode();
 
     /**
      * 优先级
@@ -24,7 +26,25 @@ public interface IAction extends Action {
      */
     default int getPriority() {
 
-        return Integer.MAX_VALUE - 1;
+        return DEFAULT_PRIORITY;
+    }
+
+    /**
+     * 设置优先级
+     *
+     * @param priority 优先级
+     */
+    void setPriority(int priority);
+
+    @Override
+    default int compareTo(final IAction action) {
+        if (getPriority() < action.getPriority()) {
+            return -1;
+        } else if (getPriority() > action.getPriority()) {
+            return 1;
+        } else {
+            return getActionTypeCode().compareTo(action.getActionTypeCode());
+        }
     }
 
 }

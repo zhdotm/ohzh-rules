@@ -8,14 +8,16 @@ import org.jeasy.rules.api.Condition;
  * @author zhihao.mao
  */
 
-public interface ICondition extends Condition {
+public interface ICondition extends Condition, Comparable<ICondition> {
+
+    int DEFAULT_PRIORITY = Integer.MAX_VALUE - 1;
 
     /**
-     * 获取条件编码
+     * 获取条件类型编码
      *
-     * @return 条件编码
+     * @return 条件类型编码
      */
-    String getConditionCode();
+    String getConditionTypeCode();
 
     /**
      * 优先级
@@ -24,6 +26,25 @@ public interface ICondition extends Condition {
      */
     default int getPriority() {
 
-        return Integer.MAX_VALUE - 1;
+        return DEFAULT_PRIORITY;
     }
+
+    /**
+     * 设置优先级
+     *
+     * @param priority 优先级
+     */
+    void setPriority(int priority);
+
+    @Override
+    default int compareTo(final ICondition condition) {
+        if (getPriority() < condition.getPriority()) {
+            return -1;
+        } else if (getPriority() > condition.getPriority()) {
+            return 1;
+        } else {
+            return getConditionTypeCode().compareTo(condition.getConditionTypeCode());
+        }
+    }
+
 }

@@ -12,7 +12,7 @@ import java.util.List;
  * @author zhihao.mao
  */
 
-public interface INotExistCondition extends ICondition {
+public interface INotExistCondition extends ISingleCondition {
 
     /**
      * 获取NotExist条件字段名称

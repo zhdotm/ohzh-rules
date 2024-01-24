@@ -4,16 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 条件枚举
+ * 动作类型枚举
  *
  * @author zhihao.mao
  */
 
 @AllArgsConstructor
-public enum ActionEnum {
+public enum ActionTypeEnum {
 
     /**
-     * 条件枚举
+     * 动作类型枚举
      */
     ALL_EXECUTE("all_execute_action", "全执行"),
     FIRST_EXECUTE("first_execute_action", "首个执行"),

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @author zhihao.mao
  */
 
-public interface ILessThanCondition<T> extends ICondition {
+public interface ILessThanCondition<T> extends ISingleCondition {
 
     /**
      * 获取小于条件字段名称

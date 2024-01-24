@@ -1,7 +1,7 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.INotRangeCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionEnum;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,7 +12,7 @@ import lombok.Getter;
  */
 
 @AllArgsConstructor
-public class NotRangeCondition<T> implements INotRangeCondition<T> {
+public class NotRangeCondition<T> extends AbstractSingleCondition implements INotRangeCondition<T> {
 
     @Getter
     private final String notRangeFieldName;
@@ -24,8 +24,8 @@ public class NotRangeCondition<T> implements INotRangeCondition<T> {
     private final T rightBoundaryTargetValue;
 
     @Override
-    public String getConditionCode() {
+    public String getConditionTypeCode() {
 
-        return ConditionEnum.NOT_RANGE.getCode();
+        return ConditionTypeEnum.NOT_RANGE.getCode();
     }
 }

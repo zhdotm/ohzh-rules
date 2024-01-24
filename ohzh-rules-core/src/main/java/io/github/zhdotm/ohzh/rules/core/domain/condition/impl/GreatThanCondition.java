@@ -1,7 +1,7 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.IGreatThanCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionEnum;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,7 +12,7 @@ import lombok.Getter;
  */
 
 @AllArgsConstructor
-public class GreatThanCondition<T> implements IGreatThanCondition<T> {
+public class GreatThanCondition<T> extends AbstractSingleCondition implements IGreatThanCondition<T> {
 
     @Getter
     private final String greatThanFieldName;
@@ -21,9 +21,9 @@ public class GreatThanCondition<T> implements IGreatThanCondition<T> {
     private final T greatThanTargetValue;
 
     @Override
-    public String getConditionCode() {
+    public String getConditionTypeCode() {
 
-        return ConditionEnum.GREAT_THAN.getCode();
+        return ConditionTypeEnum.GREAT_THAN.getCode();
     }
 
 }

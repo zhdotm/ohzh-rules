@@ -2,7 +2,7 @@ package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import io.github.zhdotm.ohzh.rules.core.domain.condition.ICondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionEnum;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 import java.util.Collection;
@@ -34,9 +34,9 @@ public class AllEvaluateCompositeCondition extends AbstractCompositeCondition {
     }
 
     @Override
-    public String getConditionCode() {
+    public String getConditionTypeCode() {
 
-        return ConditionEnum.ALL_EVALUATE.getCode();
+        return ConditionTypeEnum.ALL_EVALUATE.getCode();
     }
 
 }

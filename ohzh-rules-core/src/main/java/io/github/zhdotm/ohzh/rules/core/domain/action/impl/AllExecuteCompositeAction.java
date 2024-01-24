@@ -2,7 +2,7 @@ package io.github.zhdotm.ohzh.rules.core.domain.action.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import io.github.zhdotm.ohzh.rules.core.domain.action.IAction;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ActionEnum;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ActionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 import java.util.Collection;
@@ -33,9 +33,9 @@ public class AllExecuteCompositeAction extends AbstractCompositeAction {
     }
 
     @Override
-    public String getActionCode() {
+    public String getActionTypeCode() {
 
-        return ActionEnum.ALL_EXECUTE.getCode();
+        return ActionTypeEnum.ALL_EXECUTE.getCode();
     }
 
 }

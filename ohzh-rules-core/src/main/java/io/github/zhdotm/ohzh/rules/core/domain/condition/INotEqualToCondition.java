@@ -9,7 +9,7 @@ import org.jeasy.rules.api.Facts;
  * @author zhihao.mao
  */
 
-public interface INotEqualToCondition<T> extends ICondition {
+public interface INotEqualToCondition<T> extends ISingleCondition {
 
     /**
      * 获取不等于条件字段名称

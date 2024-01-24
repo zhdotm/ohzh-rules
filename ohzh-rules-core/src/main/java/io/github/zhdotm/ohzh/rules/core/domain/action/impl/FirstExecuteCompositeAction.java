@@ -3,7 +3,7 @@ package io.github.zhdotm.ohzh.rules.core.domain.action.impl;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
 import io.github.zhdotm.ohzh.rules.core.domain.action.IAction;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ActionEnum;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ActionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 import java.util.Collection;
@@ -33,9 +33,9 @@ public class FirstExecuteCompositeAction extends AbstractCompositeAction {
     }
 
     @Override
-    public String getActionCode() {
+    public String getActionTypeCode() {
 
-        return ActionEnum.FIRST_EXECUTE.getCode();
+        return ActionTypeEnum.FIRST_EXECUTE.getCode();
     }
 
 }

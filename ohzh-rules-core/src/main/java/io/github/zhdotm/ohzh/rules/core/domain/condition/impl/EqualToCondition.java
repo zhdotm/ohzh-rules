@@ -1,7 +1,7 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.IEqualToCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionEnum;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,7 +12,7 @@ import lombok.Getter;
  */
 
 @AllArgsConstructor
-public class EqualToCondition<T> implements IEqualToCondition<T> {
+public class EqualToCondition<T> extends AbstractSingleCondition implements IEqualToCondition<T> {
 
     @Getter
     private final String equalToFieldName;
@@ -21,8 +21,8 @@ public class EqualToCondition<T> implements IEqualToCondition<T> {
     private final T equalToTargetValue;
 
     @Override
-    public String getConditionCode() {
+    public String getConditionTypeCode() {
 
-        return ConditionEnum.EQUAL_TO.getCode();
+        return ConditionTypeEnum.EQUAL_TO.getCode();
     }
 }

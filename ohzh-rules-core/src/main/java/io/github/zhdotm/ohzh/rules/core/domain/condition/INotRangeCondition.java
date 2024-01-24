@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @author zhihao.mao
  */
 
-public interface INotRangeCondition<T> extends ICondition {
+public interface INotRangeCondition<T> extends ISingleCondition {
 
     /**
      * 获取不在范围内条件字段名称

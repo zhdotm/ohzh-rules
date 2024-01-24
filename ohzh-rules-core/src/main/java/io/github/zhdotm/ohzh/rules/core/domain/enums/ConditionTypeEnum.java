@@ -4,16 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 条件枚举
+ * 条件类型枚举
  *
  * @author zhihao.mao
  */
 
 @AllArgsConstructor
-public enum ConditionEnum {
+public enum ConditionTypeEnum {
 
     /**
-     * 条件枚举
+     * 条件类型枚举
      */
     ALL_EVALUATE("ALL_EVALUATE_CONDITION", "全匹配"),
     ANY_EVALUATE("ANY_EVALUATE_CONDITION", "任意匹配"),

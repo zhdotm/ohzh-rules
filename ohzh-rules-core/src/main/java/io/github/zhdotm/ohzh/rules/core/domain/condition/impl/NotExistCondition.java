@@ -1,7 +1,7 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.INotExistCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionEnum;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @AllArgsConstructor
-public class NotExistCondition implements INotExistCondition {
+public class NotExistCondition extends AbstractSingleCondition implements INotExistCondition {
 
     @Getter
     private final String notExistFieldName;
@@ -23,8 +23,8 @@ public class NotExistCondition implements INotExistCondition {
     private final List<String> notExistTargetValues;
 
     @Override
-    public String getConditionCode() {
+    public String getConditionTypeCode() {
 
-        return ConditionEnum.NOT_EXIST.getCode();
+        return ConditionTypeEnum.NOT_EXIST.getCode();
     }
 }

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @author zhihao.mao
  */
 
-public interface IGreatThanOrEqualToCondition<T> extends ICondition {
+public interface IGreatThanOrEqualToCondition<T> extends ISingleCondition {
 
     /**
      * 获取大于等于条件字段名称

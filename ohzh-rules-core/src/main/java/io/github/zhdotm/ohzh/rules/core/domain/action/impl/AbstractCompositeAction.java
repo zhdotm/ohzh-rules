@@ -1,6 +1,7 @@
 package io.github.zhdotm.ohzh.rules.core.domain.action.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
@@ -8,8 +9,12 @@ import io.github.zhdotm.ohzh.rules.core.domain.action.IAction;
 import io.github.zhdotm.ohzh.rules.core.domain.action.ICompositeAction;
 import io.github.zhdotm.ohzh.rules.core.domain.action.ISingleAction;
 import lombok.Getter;
+import lombok.Setter;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Map;
+import java.util.TreeSet;
 
 /**
  * 复合动作（抽象）
@@ -21,21 +26,20 @@ public abstract class AbstractCompositeAction implements ICompositeAction {
 
     @Getter
     private final Map<String, Object> executeReturnMap;
-
     @Getter
     private final Collection<IAction> actions;
+    @Getter
+    @Setter
+    private int priority = IAction.DEFAULT_PRIORITY;
 
     public AbstractCompositeAction(IAction... actions) {
-        this.actions = new ArrayList<IAction>() {
-            {
-                sort(Comparator.comparingInt(IAction::getPriority));
-            }
-        };
+        this.actions = new TreeSet<>();
+        ;
         if (ArrayUtil.isNotEmpty(actions)) {
             this.actions.addAll(Arrays.asList(actions));
         }
 
-        this.executeReturnMap = new HashMap<>();
+        this.executeReturnMap = MapUtil.newHashMap();
     }
 
     public void putActionExecuteReturn(IAction action) {

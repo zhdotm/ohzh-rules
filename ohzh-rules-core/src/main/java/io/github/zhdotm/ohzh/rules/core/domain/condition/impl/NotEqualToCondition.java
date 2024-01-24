@@ -1,7 +1,7 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import io.github.zhdotm.ohzh.rules.core.domain.condition.INotEqualToCondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionEnum;
+import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,7 +12,7 @@ import lombok.Getter;
  */
 
 @AllArgsConstructor
-public class NotEqualToCondition<T> implements INotEqualToCondition<T> {
+public class NotEqualToCondition<T> extends AbstractSingleCondition implements INotEqualToCondition<T> {
 
     @Getter
     private final String notEqualToFieldName;
@@ -21,8 +21,8 @@ public class NotEqualToCondition<T> implements INotEqualToCondition<T> {
     private final T notEqualToTargetValue;
 
     @Override
-    public String getConditionCode() {
+    public String getConditionTypeCode() {
 
-        return ConditionEnum.NOT_EQUAL_TO.getCode();
+        return ConditionTypeEnum.NOT_EQUAL_TO.getCode();
     }
 }
