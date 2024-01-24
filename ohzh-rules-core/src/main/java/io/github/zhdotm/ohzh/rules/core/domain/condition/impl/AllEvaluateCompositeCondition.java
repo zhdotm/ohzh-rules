@@ -2,7 +2,7 @@ package io.github.zhdotm.ohzh.rules.core.domain.condition.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import io.github.zhdotm.ohzh.rules.core.domain.condition.ICondition;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
+import io.github.zhdotm.ohzh.rules.core.enums.ConditionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 import java.util.Collection;

@@ -1,7 +1,7 @@
 package io.github.zhdotm.ohzh.rules.core.domain.condition;
 
 import cn.hutool.core.util.ObjectUtil;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ConditionTypeEnum;
+import io.github.zhdotm.ohzh.rules.core.enums.ConditionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 /**

@@ -1,4 +1,4 @@
-package io.github.zhdotm.ohzh.rules.core.listener;
+package io.github.zhdotm.ohzh.rules.core.domain.listener;
 
 import io.github.zhdotm.ohzh.rules.core.domain.rule.IRule;
 import org.jeasy.rules.api.Facts;

@@ -1,8 +1,8 @@
 package io.github.zhdotm.ohzh.rules.core.domain.rule.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.RuleTypeEnum;
 import io.github.zhdotm.ohzh.rules.core.domain.rule.IRule;
+import io.github.zhdotm.ohzh.rules.core.enums.RuleTypeEnum;
 import lombok.Getter;
 import org.jeasy.rules.api.Facts;
 

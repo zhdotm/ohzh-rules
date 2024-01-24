@@ -3,7 +3,7 @@ package io.github.zhdotm.ohzh.rules.core.domain.action.impl;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
 import io.github.zhdotm.ohzh.rules.core.domain.action.IAction;
-import io.github.zhdotm.ohzh.rules.core.domain.enums.ActionTypeEnum;
+import io.github.zhdotm.ohzh.rules.core.enums.ActionTypeEnum;
 import org.jeasy.rules.api.Facts;
 
 import java.util.Collection;

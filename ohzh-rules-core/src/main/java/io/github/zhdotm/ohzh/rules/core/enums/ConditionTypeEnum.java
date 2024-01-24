@@ -1,4 +1,4 @@
-package io.github.zhdotm.ohzh.rules.core.domain.enums;
+package io.github.zhdotm.ohzh.rules.core.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
