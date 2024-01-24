@@ -44,7 +44,7 @@ public abstract class AbstractCompositeRule implements ICompositeRule {
 
     public void putRuleExecuteReturn(IRule rule) {
         Map<String, Object> ruleExecuteReturnMap = rule.getExecuteReturnMap();
-        if (CollectionUtil.isEmpty(ruleExecuteReturnMap)) {
+        if (CollectionUtil.isNotEmpty(ruleExecuteReturnMap)) {
 
             executeReturnMap.putAll(ruleExecuteReturnMap);
         }
