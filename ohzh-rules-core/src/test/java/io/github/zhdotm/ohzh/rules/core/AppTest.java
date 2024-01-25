@@ -58,7 +58,7 @@ public class AppTest {
         System.out.println(JSONUtil.toJsonPrettyStr(executeReturnMap));
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         IRule rule1 = new SingleRule("rule1", "规则1", new GreatThanCondition<>("fieldName001", 100), new SingleAction<>("doNothingFieldName001", "doNothing", facts -> (Integer) facts.get("fieldName001")));
         rule1.setPriority(1);
         IRule rule2 = new SingleRule("rule2", "规则2", new GreatThanCondition<>("fieldName001", 200), new SingleAction<>("doubleFieldName001", "doubleAction", facts -> ((Integer) facts.get("fieldName001")) * 2));
@@ -107,4 +107,28 @@ public class AppTest {
         System.out.println(JSONUtil.toJsonStr(allEvaluatePassAllExecuteCompositeRule.getExecuteReturnMap()));
 
     }
+
+    public static void main(String[] args) {
+        IRule rule1 = new SingleRule("rule1", "规则1", new GreatThanCondition<>("fieldName001", 100), new SingleAction<>("doNothingFieldName001", "doNothing", facts -> (Integer) facts.get("fieldName001")));
+        rule1.setPriority(1);
+        IRule rule2 = new SingleRule("rule2", "规则2", new GreatThanCondition<>("fieldName001", 200), new SingleAction<>("doubleFieldName001", "doubleAction", facts -> ((Integer) facts.get("fieldName001")) * 2));
+        rule2.setPriority(2);
+        IRule rule3 = new SingleRule("rule3", "规则3", new GreatThanCondition<>("fieldName001", 300), new SingleAction<>("tripleFieldName001", "tripleAction", facts -> ((Integer) facts.get("fieldName001")) * 3));
+        rule2.setPriority(3);
+
+        //复合规则内所有条件都通过，所有规则动作都执行
+        AllEvaluatePassAllExecuteCompositeRule allEvaluatePassAllExecuteCompositeRule = new AllEvaluatePassAllExecuteCompositeRule(rule1, rule2, rule3);
+
+        DefaultRulesEngine defaultRulesEngine = new DefaultRulesEngine();
+        Rules rules = new Rules(allEvaluatePassAllExecuteCompositeRule);
+        Facts facts = new Facts();
+        // 301全通过
+        facts.put("fieldName001", 301);
+
+        defaultRulesEngine.fire(rules, facts);
+
+        //打印规则执行输出
+        System.out.println(JSONUtil.toJsonStr(allEvaluatePassAllExecuteCompositeRule.getExecuteReturnMap()));
+    }
+
 }
